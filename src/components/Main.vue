@@ -38,7 +38,8 @@ export default {
 
 .dg-bg-overlay {
   background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
+  background-size: cover;
+  height: 100%;
 }
 
 h2 {

@@ -23,7 +23,17 @@
           {{ item.original_title || item.original_name }}
         </h4>
         <p class="info">
-          Voto: {{ item.vote_average }} {{ item.original_language }}
+          Voto:
+          <i
+            :key="'star' + index"
+            v-for="(star, index) in getStars(item)"
+            class="fa-solid fa-star stars"
+          ></i>
+          <i
+            :key="'emptystar' + index"
+            v-for="(emptystar, index) in 5 - getStars(item)"
+            class="fa-regular fa-star"
+          ></i>
         </p>
       </div>
     </div>
@@ -63,8 +73,9 @@ export default {
 .dg-card {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 15px;
   width: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   &:hover {
     cursor: pointer;
@@ -73,6 +84,7 @@ export default {
   img {
     width: 100%;
     height: 100%;
+    border: 2px solid gray;
   }
 
   .no-img {
@@ -84,9 +96,6 @@ export default {
   }
   .text {
     text-align: start;
-    background-color: black;
-    border: 2px solid gray;
-
     .title {
       font-size: $f-size-8;
     }
@@ -96,6 +105,9 @@ export default {
     .info {
       font-size: $f-size-7;
       line-height: 12px;
+      .stars {
+        color: gold;
+      }
     }
   }
 }
