@@ -28,13 +28,13 @@ export default {
 
   methods: {
     getApi(research) {
-      if (research !== "") {
+      if (!research == "") {
         const params = {
           query: research,
           api_key: this.apiKey,
           language: "it-IT",
         };
-        // chiamata film
+        // **** chiamata film ****
         axios
           .get(this.apiUrl + "movie", { params })
           .then((response) => {
@@ -44,7 +44,7 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-        // chiamata serie tv
+        // **** chiamata serie **** tv
         axios
           .get(this.apiUrl + "tv", { params })
           .then((response) => {

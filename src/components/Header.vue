@@ -1,12 +1,22 @@
 <template>
-  <div class="row justify-content-center">
-    <input
-      type="text"
-      placeholder="Cerca un film o serie tv ..."
-      v-model="searchContent"
-      @keyup.enter="$emit('inputSearch', searchContent)"
-      class="col-4 text-center mt-3"
-    />
+  <div class="row justify-content-between bg-black align-items-center">
+    <h1 class="title col-4 pt-2">Boolflix</h1>
+    <div class="col-5 text-end">
+      <input
+        type="text"
+        placeholder="Cerca un film o serie tv..."
+        v-model="searchContent"
+        @keyup.enter="$emit('inputSearch', searchContent)"
+        class="text-center dg-searchbar"
+      />
+      <button
+        @click="$emit('inputSearch', searchContent)"
+        type="button"
+        class="dg-btn text-white"
+      >
+        Cerca
+      </button>
+    </div>
   </div>
 </template>
 
@@ -23,4 +33,20 @@ export default {
 
 <style scoped lang="scss">
 @import "@/style/varstyles";
+
+.title {
+  color: $title-red;
+}
+
+.dg-searchbar {
+  border: none;
+  &:focus-visible {
+    outline-color: black;
+  }
+}
+
+.dg-btn {
+  background-color: $bg-red;
+  border: none;
+}
 </style>

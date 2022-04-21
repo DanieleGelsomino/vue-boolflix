@@ -1,12 +1,32 @@
 <template>
-  <div class="row">
-    <h3>
-      {{ item.title || item.name }}
-    </h3>
-    <h4>
-      {{ item.original_title || item.original_name }}
-    </h4>
-    <p>{{ item.vote_average }} {{ item.original_language }}</p>
+  <div
+    @mouseover="isOver"
+    @mouseleave="isLeave"
+    class="dg-card align-items-center text-white"
+  >
+    <div v-if="!cardOver">
+      <img
+        v-if="item.poster_path"
+        :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`"
+        :alt="item.title || item.name"
+      />
+      <span v-else class="text-black pt-5">No Image</span>
+    </div>
+    <div v-else>
+      <div class="text text-black">
+        <h3 class="title">
+          Titolo:
+          {{ item.title || item.name }}
+        </h3>
+        <h4 class="original-title">
+          Titolo Originale:
+          {{ item.original_title || item.original_name }}
+        </h4>
+        <p class="info">
+          Voto: {{ item.vote_average }}{{ item.original_language }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,11 +36,49 @@ export default {
   props: {
     item: Object,
   },
+  data() {
+    return {
+      cardOver: false,
+    };
+  },
+
+  methods: {
+    //card over controls
+    isOver() {
+      this.cardOver = true;
+    },
+    isLeave() {
+      this.cardOver = false;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
 @import "@/style/varstyles";
+
+.dg-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 20%;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .title {
+    font-size: $f-size-8;
+  }
+  .original-title {
+    font-size: $f-size-8;
+  }
+  .info {
+    font-size: $f-size-7;
+    line-height: 12px;
+  }
+}
 </style>
 
 // esempio card chiamata da Api
