@@ -83,7 +83,6 @@ export default {
   flex-direction: column;
   padding: 15px;
   width: 20%;
-  // background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   &:hover {
     cursor: pointer;

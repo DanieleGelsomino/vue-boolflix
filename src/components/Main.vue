@@ -43,6 +43,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
   border-radius: 5px;
   height: 100%;
 }
