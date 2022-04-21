@@ -41,8 +41,9 @@
             v-for="(emptystar, index) in 5 - getStars(item)"
             class="fa-regular fa-star"
           ></i>
-          <!-- **** Icona bandiera **** -->
         </p>
+        <!-- **** Icona bandiera **** -->
+        <p class="language">Lingua: <flag :iso="item.original_language" /></p>
       </div>
     </div>
   </div>
@@ -112,7 +113,8 @@ export default {
     .original-title {
       font-size: $f-size-8;
     }
-    .vote {
+    .vote,
+    .language {
       font-size: $f-size-7;
       font-weight: 600;
       .stars {

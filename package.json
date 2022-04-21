@@ -17,7 +17,8 @@
     "flag-icon-css": "^4.1.7",
     "fontawesome": "^5.6.3",
     "vue": "^2.6.14",
-    "vue-country-flag": "^2.3.2"
+    "vue-country-flag": "^2.3.2",
+    "vue-flag-icon": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
