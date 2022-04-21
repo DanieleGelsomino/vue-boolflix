@@ -43,17 +43,48 @@
           ></i>
         </p>
         <!-- **** Icona bandiera **** -->
-        <p class="language">Lingua: <flag :iso="item.original_language" /></p>
+        <p class="language d-flex align-items-center">
+          Lingua:
+          <country-flag
+            v-if="item.original_language == 'en'"
+            country="gb"
+            size="small"
+          />
+          <country-flag
+            v-if="item.original_language == 'ja'"
+            country="jp"
+            size="small"
+          />
+          <country-flag
+            v-if="item.original_language"
+            :country="item.original_language"
+            size="small"
+          />
+          <country-flag v-else country="gb" size="small" />
+        </p>
+        <p class="overview-title">
+          Panoramica:
+          <span v-if="item.overview" class="overview-text ms-1">{{
+            item.overview
+          }}</span>
+          <span v-else class="overview-text text-capitalize"
+            >Non disponibile <i class="fa-regular fa-face-frown ms-1"></i
+          ></span>
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import CountryFlag from "vue-country-flag";
 export default {
   name: "CardComponent",
   props: {
     item: Object,
+  },
+  components: {
+    CountryFlag,
   },
   data() {
     return {
@@ -92,7 +123,7 @@ export default {
   img {
     width: 100%;
     height: 100%;
-    border: 2px solid gray;
+    border: 2px solid rgba($color: #fff, $alpha: 0.2);
   }
 
   .no-img {
@@ -114,11 +145,21 @@ export default {
       font-size: $f-size-8;
     }
     .vote,
-    .language {
+    .language,
+    .overview-title {
       font-size: $f-size-7;
       font-weight: 600;
+      line-height: 11px;
       .stars {
         color: gold;
+      }
+    }
+    .overview-title {
+      overflow: scroll;
+      height: 100px;
+      .overview-text {
+        font-size: $f-size-6;
+        font-weight: 400;
       }
     }
   }

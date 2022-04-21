@@ -10,7 +10,7 @@
 
     <!-- **** Card Serie Tv **** -->
     <h2 v-if="serieTv.length > 0" class="mt-5 text-start fs-4">
-      SerieTv selezionate
+      Serie TV selezionate
     </h2>
     <div class="dg-container-card">
       <Card v-for="serie in serieTv" :key="serie.id" :item="serie" />
