@@ -10,20 +10,20 @@
         :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`"
         :alt="item.title || item.name"
       />
-      <span v-else class="text-black pt-5">No Image</span>
+      <span v-else class="text-white no-img">Immagine non disponibile</span>
     </div>
     <div v-else>
-      <div class="text text-black">
+      <div class="text text-white pt-3 ps-2 pe-1">
         <h3 class="title">
-          Titolo:
+          <span>Titolo:</span>
           {{ item.title || item.name }}
         </h3>
         <h4 class="original-title">
-          Titolo Originale:
+          <span>Titolo Originale:</span>
           {{ item.original_title || item.original_name }}
         </h4>
         <p class="info">
-          Voto: {{ item.vote_average }}{{ item.original_language }}
+          Voto: {{ item.vote_average }} {{ item.original_language }}
         </p>
       </div>
     </div>
@@ -43,12 +43,15 @@ export default {
   },
 
   methods: {
-    //card over controls
     isOver() {
       this.cardOver = true;
     },
     isLeave() {
       this.cardOver = false;
+    },
+
+    getStars(item) {
+      return Math.ceil(item.vote_average / 2);
     },
   },
 };
@@ -63,20 +66,37 @@ export default {
   padding: 10px;
   width: 20%;
   position: relative;
+  &:hover {
+    cursor: pointer;
+  }
 
   img {
     width: 100%;
     height: 100%;
   }
-  .title {
-    font-size: $f-size-8;
-  }
-  .original-title {
-    font-size: $f-size-8;
-  }
-  .info {
+
+  .no-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: $f-size-7;
-    line-height: 12px;
+  }
+  .text {
+    text-align: start;
+    background-color: black;
+    border: 2px solid gray;
+
+    .title {
+      font-size: $f-size-8;
+    }
+    .original-title {
+      font-size: $f-size-8;
+    }
+    .info {
+      font-size: $f-size-7;
+      line-height: 12px;
+    }
   }
 }
 </style>

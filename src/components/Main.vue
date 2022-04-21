@@ -1,8 +1,20 @@
 <template>
-  <div class="row text-center pt-5 movie-list justify-content-center p-5">
-    <h2 v-if="movies.length > 0" class="text-danger">Film</h2>
+  <div
+    class="
+      row
+      text-center
+      pt-5
+      justify-content-center
+      p-5
+      dg-bg-overlay
+      text-white
+    "
+  >
+    <h2 v-if="movies.length > 0" class="text-start fs-4">Film selezionati</h2>
     <Card v-for="movie in movies" :key="movie.id" :item="movie" />
-    <h2 v-if="serieTv.length > 0" class="text-danger">SerieTv</h2>
+    <h2 v-if="serieTv.length > 0" class="mt-5 text-start fs-4">
+      SerieTv selezionate
+    </h2>
     <Card v-for="serie in serieTv" :key="serie.id" :item="serie" />
   </div>
 </template>
@@ -24,8 +36,12 @@ export default {
 <style scoped lang="scss">
 @import "@/style/varstyles";
 
-.movie-list {
-  background-color: rgba(255, 255, 255, 0.495);
-  height: 100%;
+.dg-bg-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+}
+
+h2 {
+  font-weight: $text-bold;
 }
 </style>

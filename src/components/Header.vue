@@ -48,5 +48,10 @@ export default {
 .dg-btn {
   background-color: $bg-red;
   border: none;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(206, 7, 7);
+    transform: scale(1.1);
+  }
 }
 </style>
