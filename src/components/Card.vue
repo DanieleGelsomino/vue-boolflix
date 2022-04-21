@@ -5,35 +5,43 @@
     class="dg-card align-items-center text-white"
   >
     <div v-if="!cardOver">
+      <!-- **** Poster **** -->
       <img
         v-if="item.poster_path"
         :src="`https://image.tmdb.org/t/p/w342${item.poster_path}`"
         :alt="item.title || item.name"
       />
-      <span v-else class="text-white no-img">Immagine non disponibile</span>
+      <span v-else class="text-white no-img">Copertina non disponibile</span>
     </div>
     <div v-else>
+      <!-- **** Titolo + Titolo originale + Voto + Lingua **** -->
       <div class="text text-white pt-3 ps-2 pe-1">
+        <!-- **** Titolo **** -->
         <h3 class="title">
           <span>Titolo:</span>
           {{ item.title || item.name }}
         </h3>
+        <!-- **** Titolo originale **** -->
         <h4 class="original-title">
           <span>Titolo Originale:</span>
           {{ item.original_title || item.original_name }}
         </h4>
-        <p class="info">
+        <!-- ***** Voto con stelle **** -->
+        <p class="vote">
           Voto:
+          <!-- **** Stelle piene **** -->
           <i
             :key="'star' + index"
             v-for="(star, index) in getStars(item)"
             class="fa-solid fa-star stars"
           ></i>
+          <!-- **** Stelle vuote **** -->
           <i
             :key="'emptystar' + index"
             v-for="(emptystar, index) in 5 - getStars(item)"
             class="fa-regular fa-star"
           ></i>
+          <!-- **** Icona bandiera **** -->
         </p>
       </div>
     </div>
@@ -75,7 +83,7 @@ export default {
   flex-direction: column;
   padding: 15px;
   width: 20%;
-  background-color: rgba(0, 0, 0, 0.5);
+  // background-color: rgba(0, 0, 0, 0.5);
   position: relative;
   &:hover {
     cursor: pointer;
@@ -96,15 +104,18 @@ export default {
   }
   .text {
     text-align: start;
+    span {
+      font-weight: 600;
+    }
     .title {
       font-size: $f-size-8;
     }
     .original-title {
       font-size: $f-size-8;
     }
-    .info {
+    .vote {
       font-size: $f-size-7;
-      line-height: 12px;
+      font-weight: 600;
       .stars {
         color: gold;
       }

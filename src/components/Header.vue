@@ -1,6 +1,7 @@
 <template>
-  <div class="row justify-content-between bg-black align-items-center">
+  <div class="row justify-content-between bg-black align-items-center p-2">
     <h1 class="title col-4 pt-2">Boolflix</h1>
+    <!-- **** Searchbar **** -->
     <div class="col-5 text-end">
       <input
         type="text"
