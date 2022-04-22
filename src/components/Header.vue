@@ -37,10 +37,13 @@ export default {
 
 .title {
   color: $title-red;
+  font-weight: 600;
 }
 
 .dg-searchbar {
   border: none;
+  font-size: $f-size-8;
+  padding: 4px 6px;
   &:focus-visible {
     outline-color: black;
   }
@@ -49,6 +52,8 @@ export default {
 .dg-btn {
   background-color: $bg-red;
   border: none;
+  font-size: $f-size-8;
+  padding: 4px 6px;
   &:hover {
     cursor: pointer;
     background-color: rgb(206, 7, 7);

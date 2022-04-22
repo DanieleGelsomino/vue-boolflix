@@ -39,7 +39,7 @@ export default {
           .get(this.apiUrl + "movie", { params })
           .then((response) => {
             this.movies = response.data.results;
-            console.log(this.movies);
+            // console.log(this.movies);
           })
           .catch((error) => {
             console.log(error);
@@ -49,7 +49,7 @@ export default {
           .get(this.apiUrl + "tv", { params })
           .then((response) => {
             this.series = response.data.results;
-            console.log(this.series);
+            //console.log(this.series);
           })
           .catch((error) => {
             console.log(error);

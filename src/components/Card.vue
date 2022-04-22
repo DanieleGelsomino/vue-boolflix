@@ -34,7 +34,8 @@
             :key="'star' + index"
             v-for="(star, index) in getStars(item)"
             class="fa-solid fa-star stars"
-          ></i>
+          >
+          </i>
           <!-- **** Stelle vuote **** -->
           <i
             :key="'emptystar' + index"
@@ -42,7 +43,7 @@
             class="fa-regular fa-star"
           ></i>
         </p>
-        <!-- **** Icona bandiera **** -->
+        <!-- **** Flag icon **** -->
         <p class="language d-flex align-items-center">
           Lingua:
           <country-flag
@@ -51,17 +52,25 @@
             size="small"
           />
           <country-flag
-            v-if="item.original_language == 'ja'"
+            v-else-if="item.original_language == 'ja'"
             country="jp"
             size="small"
           />
           <country-flag
-            v-if="item.original_language"
-            :country="item.original_language"
+            v-else-if="item.original_language == 'da'"
+            country="dk"
             size="small"
           />
-          <country-flag v-else country="gb" size="small" />
+          <country-flag
+            v-else-if="
+              item.original_language == 'te' || item.original_language == 'hi'
+            "
+            country="in"
+            size="small"
+          />
+          <country-flag v-else :country="item.original_language" size="small" />
         </p>
+        <!-- **** Panoramica **** -->
         <p class="overview-title">
           Panoramica:
           <span v-if="item.overview" class="overview-text ms-1">{{
@@ -115,6 +124,8 @@ export default {
   flex-direction: column;
   padding: 15px;
   width: 20%;
+  min-height: 250px;
+  margin: 20px 0px;
   position: relative;
   &:hover {
     cursor: pointer;
@@ -147,16 +158,29 @@ export default {
     .vote,
     .language,
     .overview-title {
-      font-size: $f-size-7;
+      font-size: $f-size-8;
       font-weight: 600;
-      line-height: 11px;
+      line-height: 14px;
       .stars {
         color: gold;
       }
     }
     .overview-title {
-      overflow: scroll;
+      overflow-y: scroll;
       height: 100px;
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+      }
+
       .overview-text {
         font-size: $f-size-6;
         font-weight: 400;
