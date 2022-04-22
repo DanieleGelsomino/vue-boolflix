@@ -3,6 +3,7 @@
     <div id="app">
       <Header @inputSearch="getApi" />
       <Main :movies="movies" :serieTv="series" />
+      <Firstpage :movies="movies" />
     </div>
   </div>
 </template>
@@ -10,12 +11,14 @@
 <script>
 import Header from "@/components/Header.vue";
 import Main from "@/components/Main.vue";
+import Firstpage from "@/components/Firstpage.vue";
 import axios from "axios";
 export default {
   name: "App",
   components: {
     Header,
     Main,
+    Firstpage,
   },
   data() {
     return {

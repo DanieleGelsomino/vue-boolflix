@@ -3,14 +3,16 @@
     class="row text-center pt-5 justify-content-center p-5 text-white dg-main"
   >
     <!-- **** Card Film **** -->
-    <h2 v-if="movies.length > 0" class="text-start fs-4">Film selezionati</h2>
+    <h2 v-if="movies.length > 0" class="text-start fs-4 text-uppercase">
+      Film trovati
+    </h2>
     <div class="dg-container-card">
       <Card v-for="movie in movies" :key="movie.id" :item="movie" />
     </div>
 
     <!-- **** Card Serie Tv **** -->
-    <h2 v-if="serieTv.length > 0" class="mt-5 text-start fs-4">
-      Serie TV selezionate
+    <h2 v-if="serieTv.length > 0" class="mt-5 text-start fs-4 text-uppercase">
+      Serie TV trovate
     </h2>
     <div class="dg-container-card">
       <Card v-for="serie in serieTv" :key="serie.id" :item="serie" />
