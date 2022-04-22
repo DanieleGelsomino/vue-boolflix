@@ -77,8 +77,8 @@
             item.overview
           }}</span>
           <span v-else class="overview-text text-capitalize"
-            >Non disponibile <i class="fa-regular fa-face-frown ms-1"></i
-          ></span>
+            >Non disponibile</span
+          >
         </p>
       </div>
     </div>
@@ -158,7 +158,7 @@ export default {
     .vote,
     .language,
     .overview-title {
-      font-size: $f-size-8;
+      font-size: $f-size-7;
       font-weight: 600;
       line-height: 14px;
       .stars {
@@ -182,7 +182,7 @@ export default {
       }
 
       .overview-text {
-        font-size: $f-size-6;
+        font-size: $f-size-7;
         font-weight: 400;
       }
     }
