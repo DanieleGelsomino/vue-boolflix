@@ -46,6 +46,9 @@
         <!-- **** Flag icon **** -->
         <p class="language d-flex align-items-center">
           Lingua:
+          <span v-if="item.original_language" class="text-uppercase ms-1">{{
+            item.original_language
+          }}</span>
           <country-flag
             v-if="item.original_language == 'en'"
             country="gb"
