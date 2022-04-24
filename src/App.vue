@@ -13,6 +13,7 @@ import Header from "@/components/Header.vue";
 import Main from "@/components/Main.vue";
 import Firstpage from "@/components/Firstpage.vue";
 import axios from "axios";
+import { apiKey } from "@/apikey";
 export default {
   name: "App",
   components: {
@@ -23,7 +24,7 @@ export default {
   data() {
     return {
       apiUrl: "https://api.themoviedb.org/3/search/",
-      apiKey: "04bf676ced9ced63e761c6fcbe9c02bc",
+      apiKey: "apiKey",
       movies: [],
       series: [],
     };
@@ -34,7 +35,7 @@ export default {
       if (!research == "") {
         const params = {
           query: research,
-          api_key: this.apiKey,
+          api_key: apiKey,
           language: "it-IT",
         };
         // **** chiamata film ****
